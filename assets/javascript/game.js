@@ -7,11 +7,16 @@ var spell = "spell";
 var spellUsed = ["spell"];
 var winNo = 0;
 var lifeRemain;
+var userWord;
 
 var start = 0;
 var userInput = "";
 var gameLine = [];
 var letterUsed = [];
+
+
+
+var audioSpell = document.createElement("audio"); 
 
 
 // FUNCTIONS
@@ -45,18 +50,18 @@ function newGame()
 {
 		lifeRemain = 15;
 		letterUsed = [];
-		gameLine = [];
-		$("#imgTag").attr("src", "");	
+		gameLine = [];		
 		document.getElementById('wins').innerHTML = winNo;
 		document.getElementById('lifeRemain').innerHTML = lifeRemain;
 		document.getElementById('letterUsed').textContent = letterUsed;
 		start ++;
 		getSpell();
-		if (spell === "Incendio")
-		{
-			$("#imgTag").attr("src", "assets/images/incendio.jpg")
+		*if (userWord === "Incendio")
+		{ 
+			$("#imgTag").attr("src", "assets/images/incendio.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/incendio.mp3");
+        	audioSpell.play();		
 		}
-}
 
 
 
@@ -64,46 +69,53 @@ function newGame()
 // ==============================================================================
 
 // When the user presses a key, it will run the following function...
-document.onkeyup = function (event)
+$(document).ready(function()
 {
-	if (start === 0)
-	{
-		newGame();
-	}
-	else if (!letterUsed.includes(event.key.toLowerCase()))
-	{
-		userInput = event.key.toLowerCase();
-		if (!spell.includes(userInput))
-		{
-			lifeRemain --;
-			document.getElementById('lifeRemain').innerHTML = lifeRemain;
-		}
-		else 
-		{
-			for (var i = 0; i < spell.length; i++)
-			{
 
-				if (spell[i] === userInput || spell[i] === userInput.toUpperCase())
-				{				
-					gameLine[i] = spell[i];
+	document.onkeyup = function (event)
+	{
+		if (start === 0)
+		{
+			newGame();
+		}
+		else if (!letterUsed.includes(event.key.toLowerCase()))
+		{
+			userInput = event.key.toLowerCase();
+			if (!spell.includes(userInput) && !spell.includes(userInput.toUpperCase()))
+			{
+				lifeRemain --;
+				document.getElementById('lifeRemain').innerHTML = lifeRemain;
+			}
+			else 
+			{
+				for (var i = 0; i < spell.length; i++)
+				{
+
+					if (spell[i] === userInput || spell[i] === userInput.toUpperCase())
+					{		
+						console.log(spell[i]);		
+						gameLine[i] = spell[i];
+					}
+					document.getElementById('gameLine').textContent = gameLine.join("\xa0");			
 				}
-				document.getElementById('gameLine').textContent = gameLine.join("\xa0");			
 			}
-		}
-		
-		letterUsed.push(userInput);
-		document.getElementById('letterUsed').textContent = letterUsed;
+			
+			letterUsed.push(userInput);
+			document.getElementById('letterUsed').textContent = letterUsed;
+			userWord = gameLine.join("");
 
-		if(gameLine.join("") === spell)
-			{
-				winNo ++;
-				start = 0;
-				newGame();
-			}
-		if(lifeRemain <= 0)
-			{
-				start = 0;
-				newGame();
-			}
+			if(userWord === spell)
+				{
+					winNo ++;
+					start = 0;
+					document.getElementById('answerTop').textContent = userWord;
+					newGame();
+				}
+			if(lifeRemain<= 0)
+				{
+					start = 0;
+					newGame();
+				}
+		}
 	}
-}
+})

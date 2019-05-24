@@ -1,0 +1,47 @@
+body
+{
+	background-image: url("../images/bg4.jpg");
+	background-position: 50% 15%;
+	color: white;
+}
+
+h3{
+	font-family:'Montaga', serif;
+	line-height: 2;
+}
+
+main
+{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 150px;
+}
+
+.gameDiv
+{
+	text-align: center;
+}
+
+.answerDiv
+{
+	position: relative;
+	bottom: 15px;
+	right: 100px;
+	text-align: center;
+	font-size: 25px;
+}
+
+#imgTag
+{
+	margin-top: 20px;
+}
+
+iframe
+{
+	z-index: -20;
+}
+
+header
+{
+	font-size: 25px;
+}
