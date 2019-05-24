@@ -56,7 +56,7 @@ function newGame()
 		document.getElementById('letterUsed').textContent = letterUsed;
 		start ++;
 		getSpell();
-		if (userWord === "Incendio")
+	    if (userWord === "Incendio")
 		{ 
 			$("#imgTag").attr("src", "assets/images/incendio.jpg");			
         	audioSpell.setAttribute("src", "assets/audios/incendio.mp3");
