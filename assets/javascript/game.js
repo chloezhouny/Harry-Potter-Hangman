@@ -56,12 +56,13 @@ function newGame()
 		document.getElementById('letterUsed').textContent = letterUsed;
 		start ++;
 		getSpell();
-		*if (userWord === "Incendio")
+		if (userWord === "Incendio")
 		{ 
 			$("#imgTag").attr("src", "assets/images/incendio.jpg");			
         	audioSpell.setAttribute("src", "assets/audios/incendio.mp3");
         	audioSpell.play();		
 		}
+}
 
 
 
@@ -69,9 +70,6 @@ function newGame()
 // ==============================================================================
 
 // When the user presses a key, it will run the following function...
-$(document).ready(function()
-{
-
 	document.onkeyup = function (event)
 	{
 		if (start === 0)
@@ -118,4 +116,3 @@ $(document).ready(function()
 				}
 		}
 	}
-})
