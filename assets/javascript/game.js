@@ -2,7 +2,7 @@
 // ==========================================================================
 
 var spells = ["Crucio", "Expecto Patronum", "Imperio", "Expelliarmus", "Lumos", "Avada Kedavra", "Wingardium Leviosa", "Stupefy",
-"Incendio", "Protego Totalum", "Obliviate"]
+"Incendio", "Protego Totalum", "Obliviate", "Finite Incantatem", "Reparo", "Alohomora"]
 var spell = "spell";
 var spellUsed = ["spell"];
 var winNo = 0;
@@ -56,10 +56,95 @@ function newGame()
 		document.getElementById('letterUsed').textContent = letterUsed;
 		start ++;
 		getSpell();
+
+		if (userWord === "Crucio")
+		{ 
+			$("#imgTag").attr("src", "assets/images/crucio.jpg");			
+		}
+
+		if (userWord === "Expecto Patronum")
+		{ 
+			$("#imgTag").attr("src", "assets/images/expecto.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/expecto.mp3");
+        	audioSpell.play();		
+		}
+
+		if (userWord === "Imperio")
+		{ 
+			$("#imgTag").attr("src", "assets/images/crucio.jpg");				
+		}				
+
+		if (userWord === "Expelliarmus")
+		{ 
+			$("#imgTag").attr("src", "assets/images/expelliarmus.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/expelliarmusN.mp3");
+        	audioSpell.play();		
+		}	
+
+		if (userWord === "Lumos")
+		{ 
+			$("#imgTag").attr("src", "assets/images/lumos.jpg");				
+		}	
+
+		if (userWord === "Avada Kedavra")
+		{ 
+			$("#imgTag").attr("src", "assets/images/avada.jpg");				
+		}	
+
+		if (userWord === "Wingardium Leviosa")
+		{ 
+			$("#imgTag").attr("src", "assets/images/wingardium.jpg");	
+			audioSpell.setAttribute("src", "assets/audios/wingardium.mp3");
+        	audioSpell.play();
+        	audioSpell.setAttribute("src", "assets/audios/leviosa.mp3");
+        	audioSpell.play();					
+		}
+
+		if (userWord === "Stupefy")
+		{ 
+			$("#imgTag").attr("src", "assets/images/stupefy.jpg");			
+		}		
+
+
 	    if (userWord === "Incendio")
 		{ 
 			$("#imgTag").attr("src", "assets/images/incendio.jpg");			
         	audioSpell.setAttribute("src", "assets/audios/incendio.mp3");
+        	audioSpell.play();		
+		}
+
+
+	    if (userWord === "Protego Totalum")
+		{ 
+			$("#imgTag").attr("src", "assets/images/protego.jpg");				
+		}
+
+
+	    if (userWord === "Obliviate")
+		{ 
+			$("#imgTag").attr("src", "assets/images/obliviate.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/obliviate.mp3");
+        	audioSpell.play();		
+		}
+
+		if (userWord === "Finite Incantatem")
+		{ 
+			$("#imgTag").attr("src", "assets/images/expelliarmus.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/finite.mp3");
+        	audioSpell.play();		
+		}
+
+		if (userWord === "Reparo")
+		{ 
+			$("#imgTag").attr("src", "assets/images/expelliarmus.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/reparo.mp3");
+        	audioSpell.play();		
+		}
+
+		if (userWord === "Alohomora")
+		{ 
+			$("#imgTag").attr("src", "assets/images/alohomora.jpg");			
+        	audioSpell.setAttribute("src", "assets/audios/alohomora.mp3");
         	audioSpell.play();		
 		}
 }

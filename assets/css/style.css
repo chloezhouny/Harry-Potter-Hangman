@@ -3,6 +3,7 @@ body
 	background-image: url("../images/bg4.jpg");
 	background-position: 50% 15%;
 	color: white;
+	font-family:'Montaga', serif;
 }
 
 h3{
@@ -34,6 +35,16 @@ main
 #imgTag
 {
 	margin-top: 20px;
+	transition: 10s ease;
+}
+
+ #imgTag:hover{
+    transform: scale(1.1);
+ }
+
+#answerTop
+{
+	letter-spacing: 1px;
 }
 
 iframe
@@ -41,7 +52,3 @@ iframe
 	z-index: -20;
 }
 
-header
-{
-	font-size: 25px;
-}
