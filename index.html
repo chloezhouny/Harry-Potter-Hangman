@@ -2,11 +2,14 @@
 <html>
 <head>
 	<title>Word-Guess-Game</title>
-	
+	<meta charset="utf-8">
+
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Montaga|Ranga&display=swap" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
 </head>
 <body>
 
@@ -14,41 +17,43 @@
 	<header>
 	</header>
 
+
 	<main>
 		<div class = "answerDiv">
-			<h1><span id = "answerTop"></span></h1>
-			<img id = "imgTag" width="380px"/>
+			<p id = "answerTop" ></p>
+			<div class = "uk-overflow-hidden imgDiv"><img id = "imgTag" class="uk-animation-kenburns" width="380px"/></div>
 		</div>
 		<div class = "gameDiv">
 
-			<h3>Press any key to get started!</h3>
+			<p class="uk-animation uk-animation-fade">Press any key to get started!</p>
 			<br>
 
-			<h3>Wins</h3>
-			<br>
-			<h3><span id = "wins"></span></h3>
-			<br>
-
-			<h3>Current Word</h3>
-			<br>
-			<h3><span id = "gameLine"></span></h3>
+			<p>Wins</p>
+			<p><span id = "wins"></span></p>
 			<br>
 
-			<h3>Number of Guesses Remaining</h3>
-			<br>
-			<h3><span id = "lifeRemain"></span></h3>
+			<p>Current Word</p>
+			<p><span id = "gameLine"></span></p>
 			<br>
 
-			<h3>Letters Already Guessed</h3>
+
+			<p>Number of Guesses Remaining</p>
+			<p><span id = "lifeRemain"></span></p>
 			<br>
-			<h3><span id = "letterUsed"></span></h3>
+
+
+			<p>Letters Already Guessed</p>
+			<p><span id = "letterUsed"></span></p>
+
 		</div>
 </main>
 
-<iframe width="1%" height="1" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/675613725&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+<iframe width="1%" height="0.1" scrolling="no" frameborder="no" allow="autoplay" id = "bgMusic" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/788750733&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
 
-
-<script src = "assets/javascript/game.js"></script>
+   	<script src="assets/javascript/uikit.min.js"></script>
+    <script src="assets/javascript/uikit-icons.min.js"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src = "assets/javascript/game.js"></script>
 </body>
 </html>

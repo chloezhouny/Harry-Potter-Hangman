@@ -1,54 +1,76 @@
+
 body
 {
 	background-image: url("../images/bg4.jpg");
-	background-position: 50% 15%;
+	background-position: 50% 20%;
+	background-repeat: repeat;
 	color: white;
-	font-family:'Montaga', serif;
+	height: 100vh;
 }
 
-h3{
+p{
 	font-family:'Montaga', serif;
-	line-height: 2;
+	color: white;
 }
 
 main
 {
 	display: flex;
 	justify-content: space-around;
-	margin-top: 150px;
 }
 
+.uk-animation-kenburns {
+    animation-name: uk-scale-kenburns;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
 .gameDiv
 {
 	text-align: center;
+	margin-top: 150px;
+
 }
 
 .answerDiv
 {
 	position: relative;
-	bottom: 15px;
-	right: 100px;
+	right: 120px;
+	margin-top: 105px;
 	text-align: center;
-	font-size: 25px;
 }
+
+#imgDiv
+{
+}
+
 
 #imgTag
 {
-	margin-top: 20px;
-	transition: 10s ease;
+	transition: .5s ease;
+	margin-top: 30px;
+	width: 365px;
+	height: 365px;
+	margin: 0px;
+
 }
 
- #imgTag:hover{
-    transform: scale(1.1);
- }
+ /*#imgTag:hover{
+    transform: scale(1.1);*/
+
+ 
 
 #answerTop
 {
-	letter-spacing: 1px;
+	letter-spacing: 2px;
+	color: white;
+	font-family: !'Montaga', serif;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 60px;
 }
 
 iframe
 {
-	z-index: -20;
+
 }
 

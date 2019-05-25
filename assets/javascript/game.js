@@ -2,21 +2,34 @@
 // ==========================================================================
 
 var spells = ["Crucio", "Expecto Patronum", "Imperio", "Expelliarmus", "Lumos", "Avada Kedavra", "Wingardium Leviosa", "Stupefy",
-"Incendio", "Protego Totalum", "Obliviate", "Finite Incantatem", "Reparo", "Alohomora"]
-var spell = "spell";
-var spellUsed = ["spell"];
-var winNo = 0;
-var lifeRemain;
-var userWord;
+"Incendio", "Protego Totalum", "Obliviate", "Finite Incantatem", "Reparo", "Alohomora"];
 
+var spellImages = ["assets/images/crucio.jpg", "assets/images/expecto.jpg", "assets/images/crucio.jpg", "assets/images/expelliarmus.jpg", "assets/images/lumos.jpg",
+"assets/images/avada.jpg","assets/images/wingardium.jpg", "assets/images/stupefy.jpg","assets/images/incendio.jpg","assets/images/protego.jpg",
+"assets/images/obliviate.jpg","assets/images/expelliarmus.jpg", "assets/images/expelliarmus.jpg", "assets/images/alohomora.jpg"];
+
+var spellAudioLink = ["assets/audios/dark.mp3", "assets/audios/expecto.mp3", "assets/audios/dark.mp3", "assets/audios/expelliarmusN.mp3","assets/audios/general.mp3",
+"assets/audios/dark.mp3","assets/audios/leviosa.mp3","assets/audios/general.mp3","assets/audios/incendio.mp3","assets/audios/general.mp3",
+"assets/audios/obliviate.mp3","assets/audios/finite.mp3", "assets/audios/reparo.mp3", "assets/audios/alohomora.mp3"];
+
+
+var spell = "spell";   // Used for prevent computer generating same spell as before.
+var spellUsed = ["spell"]; // Used for prevent computer generating same spell as before.
+var winNo = 0; 
+var lifeRemain;
+var userWord; 
+
+var alphabet = "abcdefghijklmnopqrstuvwxyz"; 
 var start = 0;
-var userInput = "";
+var userInput = ""; 
 var gameLine = [];
 var letterUsed = [];
 
 
 
-var audioSpell = document.createElement("audio"); 
+
+var bgMusic = document.getElementById("bgMusic");
+bgMusic.volume = 0.05;
 
 
 // FUNCTIONS
@@ -25,7 +38,10 @@ var audioSpell = document.createElement("audio");
 /* Computer randomly select a spell from spells array, make sure it is not guessed before, and generate a new 
 blank line on webpage for user to input their guesses.*/
 function getSpell()
-{
+{	if (spellUsed.length >= spells.length)
+	{
+		spellUsed = [];
+	}
 	while (spellUsed.includes(spell))
 	{
 		spell = spells[Math.floor(Math.random()*(spells.length))];
@@ -48,6 +64,7 @@ function getSpell()
 /* Reset for new games: rest lifeRemain, letterUsed, gameLine on webpage and get a new spell for user to guess. */
 function newGame()
 {
+		if(spellUsed.length < spells.length)
 		lifeRemain = 15;
 		letterUsed = [];
 		gameLine = [];		
@@ -57,95 +74,16 @@ function newGame()
 		start ++;
 		getSpell();
 
-		if (userWord === "Crucio")
-		{ 
-			$("#imgTag").attr("src", "assets/images/crucio.jpg");			
-		}
-
-		if (userWord === "Expecto Patronum")
-		{ 
-			$("#imgTag").attr("src", "assets/images/expecto.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/expecto.mp3");
-        	audioSpell.play();		
-		}
-
-		if (userWord === "Imperio")
-		{ 
-			$("#imgTag").attr("src", "assets/images/crucio.jpg");				
-		}				
-
-		if (userWord === "Expelliarmus")
-		{ 
-			$("#imgTag").attr("src", "assets/images/expelliarmus.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/expelliarmusN.mp3");
-        	audioSpell.play();		
-		}	
-
-		if (userWord === "Lumos")
-		{ 
-			$("#imgTag").attr("src", "assets/images/lumos.jpg");				
-		}	
-
-		if (userWord === "Avada Kedavra")
-		{ 
-			$("#imgTag").attr("src", "assets/images/avada.jpg");				
-		}	
-
-		if (userWord === "Wingardium Leviosa")
-		{ 
-			$("#imgTag").attr("src", "assets/images/wingardium.jpg");	
-			audioSpell.setAttribute("src", "assets/audios/wingardium.mp3");
-        	audioSpell.play();
-        	audioSpell.setAttribute("src", "assets/audios/leviosa.mp3");
-        	audioSpell.play();					
-		}
-
-		if (userWord === "Stupefy")
-		{ 
-			$("#imgTag").attr("src", "assets/images/stupefy.jpg");			
-		}		
-
-
-	    if (userWord === "Incendio")
-		{ 
-			$("#imgTag").attr("src", "assets/images/incendio.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/incendio.mp3");
-        	audioSpell.play();		
-		}
-
-
-	    if (userWord === "Protego Totalum")
-		{ 
-			$("#imgTag").attr("src", "assets/images/protego.jpg");				
-		}
-
-
-	    if (userWord === "Obliviate")
-		{ 
-			$("#imgTag").attr("src", "assets/images/obliviate.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/obliviate.mp3");
-        	audioSpell.play();		
-		}
-
-		if (userWord === "Finite Incantatem")
-		{ 
-			$("#imgTag").attr("src", "assets/images/expelliarmus.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/finite.mp3");
-        	audioSpell.play();		
-		}
-
-		if (userWord === "Reparo")
-		{ 
-			$("#imgTag").attr("src", "assets/images/expelliarmus.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/reparo.mp3");
-        	audioSpell.play();		
-		}
-
-		if (userWord === "Alohomora")
-		{ 
-			$("#imgTag").attr("src", "assets/images/alohomora.jpg");			
-        	audioSpell.setAttribute("src", "assets/audios/alohomora.mp3");
-        	audioSpell.play();		
+		for (var i = 0; i < spells.length; i ++)
+		{
+			if (userWord === spells[i])
+			{
+				$("#imgTag").attr("src", spellImages[i]);
+				var audioSpell = document.createElement("audio"); 
+				audioSpell.setAttribute("src", spellAudioLink[i]);
+        		audioSpell.play();
+        		audioSpell.volume = 1;		
+			}
 		}
 }
 
@@ -161,7 +99,7 @@ function newGame()
 		{
 			newGame();
 		}
-		else if (!letterUsed.includes(event.key.toLowerCase()))
+		else if (!letterUsed.includes(event.key.toLowerCase()) && alphabet.includes(event.key.toLowerCase()))
 		{
 			userInput = event.key.toLowerCase();
 			if (!spell.includes(userInput) && !spell.includes(userInput.toUpperCase()))
