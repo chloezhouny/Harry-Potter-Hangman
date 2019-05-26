@@ -65,7 +65,7 @@ function getSpell()
 function newGame()
 {
 		if(spellUsed.length < spells.length)
-		lifeRemain = 15;
+		lifeRemain = 10;
 		letterUsed = [];
 		gameLine = [];		
 		document.getElementById('wins').innerHTML = winNo;
